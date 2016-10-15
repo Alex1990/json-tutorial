@@ -114,7 +114,7 @@ static void lept_encode_utf8(lept_context* c, unsigned u) {
     if (u <= 0x7f) {
         PUTC(c, u);
     } else if (u <= 0x7ff) {
-        PUTC(c, 0xC0 | ((u >> 6) & 0x2f));
+        PUTC(c, 0xC0 | ((u >> 6) & 0x1f));
         PUTC(c, 0x80 | ( u       & 0x3f));
     } else if (u <= 0xffff) {
         PUTC(c, 0xE0 | ((u >> 12) & 0xf));
